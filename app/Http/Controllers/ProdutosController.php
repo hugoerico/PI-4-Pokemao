@@ -19,13 +19,12 @@ class ProdutosController extends Controller
 } 
 
 public function store(Request $request ) {
-    if($request->imagem){
-        $imagem=$request->file('imagem')->store('produtos');
-    $imagem = "storage/".$imagem;
-    }
-    else{
+    if ($request->imagem) {
+        $imagem = $request->file('imagem')->store('produtos');
+        $imagem = "storage/" . $imagem;
+    } else {
         $imagem = "storage/produtos/imagempadrao.png";
-}
+    }
     
 
 
@@ -47,15 +46,15 @@ public function edit(Produto $produto) {
 } 
 
 public function update(Request $request, Produto $produto) {
-    if($request->imagem){
-        $imagem=$request->file('imagem')->store('produtos');
-    $imagem = "storage/".$imagem;
-    if($produto->imagem != "storage/produtos/imagem.png")
-     Storage::delete(str_replace('storage/', '',$produto->imagem));
-    }
-    else{
+    if ($request->imagem) {
+        $imagem = $request->file('imagem')->store('produtos');
+        $imagem = "storage/" . $imagem;
+        Storage::delete($produto->image);
+        if (!$produto->imagem == 'storage/produtos/imagempadrao.png')
+            Storage::delete($produto->imagem);
+    } else {
         $imagem = $produto->imagem;
-}
+    }
 
     $produto->update([
         'nome'=>$request->nome,
@@ -63,7 +62,7 @@ public function update(Request $request, Produto $produto) {
         'preco'=>$request->preco,
         'descricao'=>$request->descricao,
         'categoria_id'=>$request->categoria_id,
-        'imagem'=>$request->imagem
+        'imagem'=>$imagem
     ]);
     $produto->tipos()->sync($request->tipos);
     session()->flash('sucesso','Novo Pokemon alterado com sucesso');
@@ -90,8 +89,10 @@ public function restaurar( $id){
 }
 
 public function show(Produto $produto){
-    return view('produto.show');
+    return view('produto.show')->with(['produto'=>$produto, 'categorias'=>Categoria::all(), 'tipos'=> Tipo::all()]);
 }
+
+
 
 
 }

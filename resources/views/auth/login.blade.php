@@ -39,6 +39,12 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <div class="block mt-4">
+                <label for="remember_me" class="inline-flex items-center">
+
+                    <a class="nav-link" href="{{route('register')}}">Registrar-se</a>
+                </label>
+            </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -50,6 +56,7 @@
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
+                
             </div>
         </form>
     </x-auth-card>

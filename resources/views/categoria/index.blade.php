@@ -45,7 +45,14 @@
 
                     <a href="{{Route('categoria.edit',$categoria->id)}}" class="btn btn-warning">editar</a>
 
-                    <a href="{{Route('categoria.destroy',$categoria->id)}}" class="btn btn-danger">apagar</a>
+                    <form method="post" action="{{Route('categoria.destroy',$categoria->id)}}">
+
+                                @method('DELETE')
+                                @csrf
+
+                                <button type="submit" class="btn-danger btn mt-2">apagar</button>
+                            </form>
+                    
                 </td>
             </tr>
             @endforeach
