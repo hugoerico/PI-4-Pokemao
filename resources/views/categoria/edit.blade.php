@@ -11,12 +11,12 @@
 <body>
     <h1>editar categoria</h1>
 
-    <form action="{{Route('categoria.update',$categoria->id)}}" method="post">
-        @method('patch')
-        @csrf
+    <form action="{{Route('categoria.update',$id=$c[0])}}" method="post">
+    @method('PATCH')
+    @csrf
 
         <label for="">nome</label>
-        <input type="text" name="nome" value="{{$categoria->nome}}">
+        <input type="text" name="nome" value="{{$c[1]}}">
 
         <br>
 
