@@ -80,7 +80,7 @@
                                 @method('DELETE')
                                 @csrf
 
-                                <button type="submit" class="btn-danger btn mt-2">apagar</button>
+                                <button type="submit" class="btn-danger btn mt-2"> Apagar</button>
                             </form>
                         </td>
                     </tr>
