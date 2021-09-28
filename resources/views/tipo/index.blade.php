@@ -19,7 +19,7 @@
         </div>
         @endif
 
-        <a href="{{route('tipo.create')}}" class="btn btn-primary">Criar Tipo</a>
+        <a href="{{route('tipo.create')}}" class="btn botaoCriar">Criar Tipo</a>
 
 
         <div class="mt-5">
@@ -45,20 +45,20 @@
                     @foreach($tipos as $tipo)
                     <tr>
                         <td>{{$tipo->id}}</td>
-                        <td>{{$tipo->nome}} {{$tipo->produtos()->count()}}</td>
+                        <td>{{$tipo->nome}} </td>
                         <td> {{$tipo->produtos()->count()}}</td>
 
                         <td>
 
 
-                            <a href="{{Route('tipo.edit',$tipo->id)}}" class="btn btn-warning">editar</a>
+                            <a href="{{Route('tipo.edit',$tipo->id)}}" class="btn btn-warning botaoIndex">editar</a>
 
                             <form method="post" action="{{Route('tipo.destroy',$tipo->id)}}">
 
                                 @method('DELETE')
                                 @csrf
 
-                                <button type="submit" class="btn-danger btn mt-2">apagar</button>
+                                <button type="submit" class="btn-danger btn mt-2 botaoIndex">apagar</button>
                             </form>
                         </td>
 

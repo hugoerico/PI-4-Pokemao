@@ -7,17 +7,18 @@
     <title>criar um tipo</title>
 </head>
 <body>
-    <h1>cadastrar tipo</h1>
+@include('layouts.menu')
+    <h1 class="h1Categoria">Cadastrar tipo</h1>
 
     <form action="{{Route('tipo.store')}}" method="post">
     @csrf
 
-    <label for="">nome</label>
-    <input type="text" name="nome">
+    <label for="" class="formCateg">Nome: </label>
+    <input type="text" name="nome" class="inputCateg" >
 
    
 
-    <button type="submit">salvar</button>
+    <button type="submit"  class=" btn botaoCriar">Salvar</button>
 
 
     </form>

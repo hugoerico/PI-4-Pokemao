@@ -7,17 +7,18 @@
     <title>criar uma categoria</title>
 </head>
 <body>
-    <h1>cadastrar categoria</h1>
+@include('layouts.menu')
+    <h1 class="h1Categoria">Cadastrar categoria</h1>
 
     <form action="{{Route('categoria.store')}}" method="post">
     @csrf
-
-    <label for="">nome</label>
-    <input type="text" name="nome">
+    
+    <label for="" class="formCateg">Nome: </label>
+    <input type="text" name="nome" class="inputCateg" >
 
    
 
-    <button type="submit">salvar</button>
+    <button class=" btn botaoCriar" type="submit">Salvar</button>
 
 
     </form>

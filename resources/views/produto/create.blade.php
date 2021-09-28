@@ -11,10 +11,10 @@
 
 <body>
     @include('layouts.menu')
-    <main class="container mt-5 bg-light">
-        <h1>cadastrar produto</h1>
+    <main class="container mt-5 formCriarProd">
+        <h1 class="h1CriarProd">Cadastrar produto</h1>
 
-        <form action="{{Route('produto.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{Route('produto.store')}}" method="post" enctype="multipart/form-data" >
             @csrf
             <div class="row">
             <span class="form-label">Nome</span>
@@ -24,21 +24,21 @@
             
             <div class="row">
                 <span class="form-label">Quantidade</span>
-                <input type="number" min="0" max="1000000" name="quantidade" class="form-control">
+                <input type="number" min="0" max="1000000" name="quantidade" class="form-control" required>
             </div>
             
             
             <div class="row">
                 <span class="form-label">Preço</span>
-                <input type="number" min="0.00" max="10000.00" name="preco" step="0.01" class="form-control">
+                <input type="number" min="0.00" max="10000.00" name="preco" step="0.01" class="form-control" required>
             </div>
             <div class="row">
-                <span class="form-label">Descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
+                <span class="form-label">Descrição</span >
+                <textarea class="form-control" name="descricao" required></textarea >
             </div>
             <div class="row">
                 <span class="form-label">Categoria</span>
-                <select class="form-select" name="categoria_id">
+                <select class="form-select" name="categoria_id" required>
                     @foreach($categorias as $categoria)
                     <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
                     @endforeach
@@ -49,7 +49,7 @@
 
             <div class="row">
                 <span class="form-label">Tipo</span>
-                <select class="form-select" name="tipos[]" multiple>
+                <select class="form-select" name="tipos[]">
                     @foreach($tipos as $tipo)
                     <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
                     @endforeach
@@ -61,7 +61,7 @@
             </div>
 
             <div class="row mt-4">
-                <button type="submit" class="btn btn-success btn-lg">Salvar</button>
+                <button type="submit" class="btn btn-success btn-lg mb-4">Salvar</button>
             </div>
 
         </form>

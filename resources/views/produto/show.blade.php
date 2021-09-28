@@ -2,7 +2,9 @@
 
 <nav aria-label="breadcrumb" class="mx-5">
     <ol class="breadcrumb">
+
         <li class="breadcrumb-item"><a href="{{url('/') }}">Projeto pi4</a></li>
+        <li class="breadcrumb-item"><a href="{{url('/') }}">Pokemon</a></li>
         <li class="breadcrumb-item"><a href="{{url('/', $produto->categoria->nome)}}">{{ $produto->categoria->nome}}</a></li>
 
         <li class=" breadcrumb-item active" aria-current="page">{{$produto->nome}}</li>
@@ -25,8 +27,8 @@
             <p class="">{{ $produto->descricao }}</p>
         </div>
         <div>
-            <span class="h4 my-3">R$ {{$produto->preco }}</span>
-            <span>(Unidade})</span>
+            <span class="h4 my-3">  {{$produto->preco }} Pontos </span>
+            <span>(Unidade)</span>
         </div>
         <div>
             @foreach($produto->tipos as $tipo)

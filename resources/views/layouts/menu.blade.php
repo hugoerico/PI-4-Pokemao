@@ -1,43 +1,69 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+  rel="stylesheet"/>
+
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 <header>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand mx-5" href="#">Pokemon pi</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{route('produto.index')}}">Produto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('categoria.index')}}">Categoria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('tipo.index')}}">Tipo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('produto.lixeira')}}">Lixeira</a>
-        </li>
-        <li class="nav-item">
-          <div class="nav-link font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-        </li>
-        <li class="nav-item">
+  <nav class="navbar navbar-expand-md menuAdm ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="https://cdn-icons-png.flaticon.com/512/361/361998.png" class="logo"></a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+        
+          <a class="nav-link menuAdm" href="{{route('produto.index')}}" >Produto</a>
+       
+      
+          <a class="nav-link menuAdm" href="{{route('categoria.index')}}">Categoria</a>
+        
+        
+          <a class="nav-link menuAdm" href="{{route('tipo.index')}}">Tipo</a>
+        
+          <a class="nav-link menuAdm" href="{{route('produto.lixeira')}}">Lixeira</a>
+      
+          <div class="nav-link d-flex menuAdm">{{ Auth::user()->name }}</div>
+      
+          <div class="text-white" >
 
-          <form method="POST" action="{{ route('logout') }}">
+          <form  method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+          
+            <x-responsive-nav-link :href="route('logout')" class="text-white navbar-nav d-flex " style="text-decoration: underline;" onclick="event.preventDefault();
                                         this.closest('form').submit();" >
               {{ __('Log out') }}
             </x-responsive-nav-link>
           </form>
-        </li>
+      
+          </div>
 
 
-      </ul>
+        </div>
+      </div>
     </div>
   </nav>
-</header>
+</header> 

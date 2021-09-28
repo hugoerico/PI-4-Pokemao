@@ -21,7 +21,7 @@
         </div>
         @endif
 
-        <a href="{{Route('produto.create')}}" class="btn btn-primary btn-sm">criar produto</a>
+        <a href="{{Route('produto.create')}}" class="btn botaoCriar btn-lg">criar produto</a>
 
         <div class="mt-3">
             <table class="table table-striped">
@@ -57,7 +57,7 @@
                 <tbody>
                     @foreach($produtos as $produto)
                     <tr>
-                        <td><img src="{{ URL::asset($produto->imagem)}}" style="width:35px"></td>
+                        <td><img src="{{ asset($produto->imagem)}}" style="width:35px"></td>
                         
                         
                         <td>{{$produto->id}}</td>
@@ -70,9 +70,9 @@
 
 
                         <td>
-                            <a href="{{Route('produto.show',$produto->id)}}" class="btn btn-sm btn-success">Visualizar</a>
+                            <a href="{{Route('produto.show',$produto->id)}}" class="btn  btn-success mt-2 botaoIndex">Visualizar</a>
 
-                            <a href="{{Route('produto.edit',$produto->id)}}" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{{Route('produto.edit',$produto->id)}}" class="btn  btn-warning botaoIndex mt-2">Editar</a>
 
 
                             <form method="post" action="{{Route('produto.destroy',$produto->id)}}">
@@ -80,7 +80,7 @@
                                 @method('DELETE')
                                 @csrf
 
-                                <button type="submit" class="btn-danger btn mt-2"> Apagar</button>
+                                <button type="submit" class="btn-danger btn  mt-2 botaoIndex"> Apagar</button>
                             </form>
                         </td>
                     </tr>

@@ -7,20 +7,21 @@
     <title>editar um tipo</title>
 </head>
 <body>
-    <h1>editar tipo</h1>
+@include('layouts.menu')
+    <h1 class="h1Categoria">Editar tipo</h1>
 
     <form action="{{Route('tipo.update',$tipo->id)}}" method="post">
     @method('PATCH')
     @csrf
 
-    <label for="">nome</label>
-    <input type="text" name="nome"
+    <label for="" class="formCateg">Nome: </label>
+    <input type="text" name="nome" class="inputCateg"
     value="{{$tipo->nome}}">
 
-    <br>
+    
 
 
-    <button type="submit">salvar</button>
+    <button type="submit" class="btn botaoCriar">salvar</button>
 
 
     </form>
