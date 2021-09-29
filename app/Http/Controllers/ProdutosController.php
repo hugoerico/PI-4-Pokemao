@@ -20,8 +20,8 @@ class ProdutosController extends Controller
 
 public function store(Request $request ) {
     if ($request->imagem) {
-        $imagem = $request->file('imagem')->store('produtos');
-        $imagem = "storage/" . $imagem;
+        $imagem = $request->file('imagem')->store('/public/produtos');
+        $imagem = str_replace('public/', 'storage/', $imagem);
     } else {
         $imagem = "storage/produtos/imagempadrao.png";
     }
@@ -47,8 +47,8 @@ public function edit(Produto $produto) {
 
 public function update(Request $request, Produto $produto) {
     if ($request->imagem) {
-        $imagem = $request->file('imagem')->store('produtos');
-        $imagem = "storage/" . $imagem;
+        $imagem = $request->file('imagem')->store('/public/produtos');
+        $imagem = str_replace('public/', 'storage/', $imagem);
         Storage::delete($produto->image);
         if (!$produto->imagem == 'storage/produtos/imagempadrao.png')
             Storage::delete($produto->imagem);
