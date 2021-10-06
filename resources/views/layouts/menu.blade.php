@@ -44,6 +44,8 @@
           <a class="nav-link menuAdm" href="{{route('tipo.index')}}">Tipo</a>
         
           <a class="nav-link menuAdm" href="{{route('produto.lixeira')}}">Lixeira</a>
+
+          <a class="nav-link menuAdm" href="{{route('usuario.usuarios')}}">Usuarios</a>
       
           <div class="nav-link d-flex menuAdm">{{ Auth::user()->name }}</div>
       

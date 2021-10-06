@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Tipo;
+use App\Models\User;
 
 class ProdutosController extends Controller
 {
@@ -91,7 +92,6 @@ public function restaurar( $id){
 public function show(Produto $produto){
     return view('produto.show')->with(['produto'=>$produto, 'categorias'=>Categoria::all(), 'tipos'=> Tipo::all()]);
 }
-
 
 
 

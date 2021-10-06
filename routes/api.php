@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiProdutosController;
 use App\Http\Controllers\ApiCategoriaController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware'=>'auth:sanctum'],function(){
+
+    //aqui precisa estar logado
 });
 
 //todos os produtos
@@ -34,3 +36,10 @@ Route::get('/produtos/buscar/{nome}',[ApiProdutosController::class,'search']);
 
 //buscar produto por categoria
 Route::get('produtos/categoria/buscar/{nome}',[ApiCategoriaController::class,'search']);
+
+
+//login
+Route::post('/login',[UsuarioController::class,'login']);
+
+//registrar
+Route::post('/registrar',[UsuarioController::class,'store']);
