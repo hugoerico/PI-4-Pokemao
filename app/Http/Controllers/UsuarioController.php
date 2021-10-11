@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Endereco;
 
 
 
@@ -24,8 +25,17 @@ class UsuarioController extends Controller
             return response()->json(['error' =>  'Credenciais invalidas']);
         }
         
-        
-        return response()->json($user);
+       
+        return response()->json([
+            'user'=>$user,
+            'token'=>$user->createToken($request->password)->plainTextToken
+        ]);
+    }
+
+    function logof(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json(['sucesso' =>  'Saiu com sucesso']);
     }
 
     function store(Request $request)
@@ -62,6 +72,25 @@ class UsuarioController extends Controller
         return redirect(route('usuario.usuarios'));
         
     } 
+
+    function endereco(Request $request)
+    {
+       
+    $endereco = Endereco::create([
+        'user_id'=> Auth()->user()->id,
+        'cep'=>$request->cep,
+        'estado'=>$request->estado,
+        'cidade'=>$request->cidade,
+        'bairro'=>$request->bairro,
+        'rua'=>$request->rua,
+        'complemento'=>$request->complemento,
+        'numero'=>$request->numero,
+        'contato'=>$request->contato
+        
+    ]);
+    return response()->json($endereco);
+}
+
     
 }
  
