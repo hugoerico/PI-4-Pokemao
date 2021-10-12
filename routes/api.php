@@ -30,6 +30,7 @@ Route::get('/carrinho/remove/{produto}',[CarrinhoController::class,'remove'])->n
  
   //endereço
 Route::post('/endereco',[UsuarioController::class,'endereco']);
+Route::post('update/endereco',[UsuarioController::class,'updateEndereco']);
 
 //pedidos
 Route::get('/pedidos/add/',[ApiPedidosController::class,'add']);
@@ -64,6 +65,8 @@ Route::get('/logof',[UsuarioController::class, 'logof']);
 
 //pedidos
 Route::get('/pedidos/add/{produto}',[ApiPedidosController::class,'add']);
+
+
 
 
 

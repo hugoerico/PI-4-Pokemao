@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Pedido;
 use App\Models\Endereco;
 
 
@@ -90,6 +91,23 @@ class UsuarioController extends Controller
     ]);
     return response()->json($endereco);
 }
+function updateEndereco(Request $request)
+    {
+       
+    $endereco = Endereco::where('user_id',Auth()->user()->id)->update(['user_id'=> Auth()->user()->id,
+        'cep'=>$request->cep,
+        'estado'=>$request->estado,
+        'cidade'=>$request->cidade,
+        'bairro'=>$request->bairro,
+        'rua'=>$request->rua,
+        'complemento'=>$request->complemento,
+        'numero'=>$request->numero,
+        'contato'=>$request->contato
+        
+    ]);
+    return response()->json('Endereço alterado');
+
+    }
 
     
 }

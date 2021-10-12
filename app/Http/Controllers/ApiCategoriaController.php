@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Categoria;
+use App\Models\Tipo;
 
 class ApiCategoriaController extends Controller
 {
@@ -17,4 +18,6 @@ class ApiCategoriaController extends Controller
 
       return response()->json(Produto::where('categoria_id', $categoria)->get());
     }
+
+    
 }

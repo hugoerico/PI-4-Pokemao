@@ -12,7 +12,7 @@
 <body>
     @include('layouts.menu')
     <main class="container mt-5 formCriarProd">
-        <h1 class="h1CriarProd">Usuarios Cadastrados</h1>
+        <h1 class="h1CriarProd">Pedidos</h1>
 
         <div class="mt-3">
             <table class="table table-striped">
@@ -23,41 +23,39 @@
                             ID
                         </th>
                         <th>
-                            Nome
+                           usuario id
                         </th>
                         <th>
-                            E-mail
+                            status
                         </th>
                         <th>
-                            adm sim ou não
+                            Editar Status
                         </th>
                         <th>
-                            opções
+                            endereco
                         </th>
+                        <th>
+                            Items Pedido
+                        </th>
+                        
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($usuarios as $usuario)
+                    @foreach($pedidos as $pedido)
 
                     <tr>
 
-                        <td>{{$usuario->id}}</td>
-                        <td>{{$usuario->name}}</td>
-                        <td>{{$usuario->email}}</td>
-                        <td><?php
-                            if ($usuario->IsAdmin == 1) {
-                                echo "Administrador";
-                            } else {
-                                echo "Normal";
-                            }
-                            ?></td>
+                        <td>{{$pedido->id}}</td>
+                        <td>{{$pedido->user_id}}</td>
+                        <td>{{$pedido->status}}</td>
                         <td>
-                            <a href="{{Route('usuario.editar',$id=$usuario->id)}}" class="btn btn-warning botaoIndex">editar</a>
+                            <a href="{{Route('pedido.editarStatus',$id=$pedido->id)}}" class="btn btn-warning botaoIndex">editar</a>
 
                         </td>
+                        <td>{{$pedido->endereco_id}}</td>
                         <td>
-                            <a href="{{Route('pedido.pedidos',$id=$usuario->id)}}" class="btn btn-success botaoIndex">Pedidos</a>
+                            <a href="{{Route('pedido.item',$id=$pedido->id)}}" class="btn btn-success botaoIndex">Itens</a>
 
                         </td>
                        

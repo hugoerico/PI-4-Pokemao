@@ -12,7 +12,7 @@
 <body>
     @include('layouts.menu')
     <main class="container mt-5 formCriarProd">
-        <h1 class="h1CriarProd">Usuarios Cadastrados</h1>
+        <h1 class="h1CriarProd">Item</h1>
 
         <div class="mt-3">
             <table class="table table-striped">
@@ -23,43 +23,33 @@
                             ID
                         </th>
                         <th>
-                            Nome
+                           Pedido id
                         </th>
                         <th>
-                            E-mail
+                            Produto id
                         </th>
                         <th>
-                            adm sim ou não
+                            quantidade
                         </th>
                         <th>
-                            opções
+                            preço
                         </th>
+                        
+                        
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($usuarios as $usuario)
+                    @foreach($itens as $item)
 
                     <tr>
 
-                        <td>{{$usuario->id}}</td>
-                        <td>{{$usuario->name}}</td>
-                        <td>{{$usuario->email}}</td>
-                        <td><?php
-                            if ($usuario->IsAdmin == 1) {
-                                echo "Administrador";
-                            } else {
-                                echo "Normal";
-                            }
-                            ?></td>
-                        <td>
-                            <a href="{{Route('usuario.editar',$id=$usuario->id)}}" class="btn btn-warning botaoIndex">editar</a>
-
-                        </td>
-                        <td>
-                            <a href="{{Route('pedido.pedidos',$id=$usuario->id)}}" class="btn btn-success botaoIndex">Pedidos</a>
-
-                        </td>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->pedido_id}}</td>
+                        <td>{{$item->produto_id}}</td>
+                        <td>{{$item->quantidade}}</td>
+                        <td>{{$item->preco}}</td>
+                        
                        
                     </tr>
 
