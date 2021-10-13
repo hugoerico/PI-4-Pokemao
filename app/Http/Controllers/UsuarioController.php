@@ -33,8 +33,9 @@ class UsuarioController extends Controller
         ]);
     }
 
-    function logof(Request $request)
-    {
+    function logoff()
+    
+    { 
         $request->user()->currentAccessToken()->delete();
         return response()->json(['sucesso' =>  'Saiu com sucesso']);
     }
