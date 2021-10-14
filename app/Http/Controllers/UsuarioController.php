@@ -36,7 +36,12 @@ class UsuarioController extends Controller
     function logoff()
     
     { 
+<<<<<<< HEAD
         $request->user()->currentAccessToken()->delete();
+=======
+        $user = User::where('id',Auth()->user()->id )->first();
+        $user->tokens()->delete();
+>>>>>>> 400ba14e37309a6bd7c679f7adf95ede7d2867bb
         return response()->json(['sucesso' =>  'Saiu com sucesso']);
     }
 
