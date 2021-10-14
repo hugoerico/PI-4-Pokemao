@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::group(['middleware'=>'auth:sanctum'],function(){
 
     //aqui precisa estar logado
-
+    Route::get('/logof',[UsuarioController::class, 'logof']);
     //carrinho
 Route::get('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
 
@@ -34,6 +35,8 @@ Route::post('update/endereco',[UsuarioController::class,'updateEndereco']);
 
 //pedidos
 Route::get('/pedidos/add/',[ApiPedidosController::class,'add']);
+
+
 
 });
 
@@ -60,7 +63,7 @@ Route::post('/login',[UsuarioController::class,'login']);
 Route::post('/registrar',[UsuarioController::class,'store']);
 
 //logof
-Route::get('/logof',[UsuarioController::class, 'logof']);
+
 
 
 //pedidos
