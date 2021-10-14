@@ -33,8 +33,9 @@ class UsuarioController extends Controller
         ]);
     }
 
-    function logof()
-    {
+    function logoff()
+    
+    { 
         $user = User::where('id',Auth()->user()->id )->first();
         $user->tokens()->delete();
         return response()->json(['sucesso' =>  'Saiu com sucesso']);
