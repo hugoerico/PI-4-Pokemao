@@ -13,6 +13,14 @@
     @include('layouts.menu')
     <main class="container mt-5 formCriarProd">
         <h1 class="h1CriarProd">Item</h1>
+        <h3>Total <?php 
+                       $valor=0;
+                        foreach ($itens as $item) {
+                            $valor= $valor + $item->preco;
+                        }
+                        echo($valor);
+                        
+                        ?></h3>
 
         <div class="mt-3">
             <table class="table table-striped">
@@ -23,19 +31,23 @@
                             ID
                         </th>
                         <th>
-                           Pedido id
+                            Pedido id
                         </th>
                         <th>
                             Produto id
                         </th>
+                        <th>
+                            Imegem
+                        </th>
+
                         <th>
                             quantidade
                         </th>
                         <th>
                             preço
                         </th>
-                        
-                        
+
+
 
                     </tr>
                 </thead>
@@ -47,10 +59,21 @@
                         <td>{{$item->id}}</td>
                         <td>{{$item->pedido_id}}</td>
                         <td>{{$item->produto_id}}</td>
+                        <td>
+
+                            <img src="{{ asset(<?php
+                                                foreach ($produtos as $produto) {
+                                                    if ($produto->id == $item->produto_id) {
+                                                        echo ($produto->imagem);
+                                                    }
+                                                }
+                                                ?>)}}" style="width:35px">
+
+                        </td>
                         <td>{{$item->quantidade}}</td>
                         <td>{{$item->preco}}</td>
-                        
-                       
+
+
                     </tr>
 
                     @endforeach
@@ -58,7 +81,7 @@
             </table>
 
         </div>
-       
+
 
     </main>
 </body>

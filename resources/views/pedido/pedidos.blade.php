@@ -26,13 +26,13 @@
                            usuario id
                         </th>
                         <th>
+                           Nome
+                        </th>
+                        <th>
                             status
                         </th>
                         <th>
                             Editar Status
-                        </th>
-                        <th>
-                            endereco
                         </th>
                         <th>
                             Items Pedido
@@ -43,17 +43,27 @@
                 </thead>
                 <tbody>
                     @foreach($pedidos as $pedido)
+                    
 
                     <tr>
 
                         <td>{{$pedido->id}}</td>
                         <td>{{$pedido->user_id}}</td>
+                        <td>
+                        <?php 
+                        foreach ($nomes as $nome) {
+                            if ($nome->id == $pedido->user_id) {
+                                echo($nome->name);
+                            }
+                        }
+                        
+                        ?>
+                        </td>
                         <td>{{$pedido->status}}</td>
                         <td>
                             <a href="{{Route('pedido.editarStatus',$id=$pedido->id)}}" class="btn btn-warning botaoIndex">editar</a>
 
                         </td>
-                        <td>{{$pedido->endereco_id}}</td>
                         <td>
                             <a href="{{Route('pedido.item',$id=$pedido->id)}}" class="btn btn-success botaoIndex">Itens</a>
 

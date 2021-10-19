@@ -56,11 +56,6 @@
                             <a href="{{Route('usuario.editar',$id=$usuario->id)}}" class="btn btn-warning botaoIndex">editar</a>
 
                         </td>
-                        <td>
-                            <a href="{{Route('pedido.pedidos',$id=$usuario->id)}}" class="btn btn-success botaoIndex">Pedidos</a>
-
-                        </td>
-                       
                     </tr>
 
                     @endforeach
