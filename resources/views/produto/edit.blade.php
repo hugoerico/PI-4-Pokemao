@@ -5,46 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>editar um produto</title>
+    <title>Editar um Produto</title>
 </head>
 
 <body>
     @include('layouts.menu')
-    <h1>editar produto</h1>
+    <h1 class="h1CriarProd">Editar produtos</h1>
 
     <form action="{{Route('produto.update',$produto->id)}}" method="post" enctype="multipart/form-data">
         @method('patch')
         @csrf
 
-        <label for="">nome</label>
-        <input type="text" name="nome" value="{{$produto->nome}}">
+        <div class="row">
+            <label for="" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" value="{{$produto->nome}}">
+        </div>
+        
+        <div class="row">
+            <label for="" class="form-label">Quantidade</label>
+            <input type="number" name="quantidade" class="form-control" min="0" max="100" value="{{$produto->quantidade}}">
+        </div>
 
-        <br>
+      
+        <div class="row">
+            <label for="" class="form-label" >Preço</label>
+            <input type="number" class="form-control" name="preco" min="0.00" max="10000.00" value="{{$produto->preco}}">
+        </div>
+    
+        <div class="row">
+            <label for="" class="form-label">Descrição</label>
+            <input type="text" class="form-control" name="descricao" value="{{$produto->descricao}}">
+        </div>
 
-        <label for="">quantidade</label>
-        <input type="number" name="quantidade" min="0" max="100" value="{{$produto->quantidade}}">
 
-        <br>
+        <div class="row">
+            <span class="form-label">Categoria</span>
 
-        <label for="">preço</label>
-        <input type="number" name="preco" min="0.00" max="10000.00" value="{{$produto->preco}}">
-
-        <br>
-
-        <label for="">descrição</label>
-        <input type="text" name="descricao" value="{{$produto->descricao}}">
-
-        <br>
-
-        <label for="">imagem</label>
-        <input type="file" name="imagem">
-
-        <br>
-
-        <div>
-            <span>categoria</span>
-
-            <select name="categoria_id" id="">
+            <select class="form-select" name="categoria_id" id="">
                 @foreach($categorias as $categoria)
 
                 <option value="{{$categoria->id}}" @if($categoria->id == $produto->categoria_id) selected @endif >{{$categoria->nome}}</option>
@@ -55,12 +52,14 @@
 
         </div>
 
-        <br>
+      
 
-        <div>
-            <span>tipos</span>
+       
 
-            <select name="tipos[]" id="" multiple>
+        <div class="row">
+            <span class="form-label">tipos</span>
+
+            <select class="form-select" name="tipos[]" id="" multiple>
                 @foreach($tipos as $tipo)
 
                 <option value="{{$tipo->id}}" @if($produto->tipos->contains($tipo->id))selected @endif>{{$tipo->nome}}</option>
@@ -71,9 +70,18 @@
 
         </div>
 
-        <br>
+        <div class="row">
+            <label class="form-label" for="">Imagem</label>
+            <input type="file" class="form-control" name="imagem">
 
-        <button type="submit">salvar</button>
+        </div>
+
+    
+        <div class="row mt-4">
+
+                <button type="submit" class="btn btn-success btn-sm mb-4">Salvar</button>
+
+        </div>
 
 
     </form>

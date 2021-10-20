@@ -45,7 +45,7 @@
                     @foreach($tipos as $tipo)
                     <tr>
                         <td>{{$tipo->id}}</td>
-                        <td>{{$tipo->nome}} {{$tipo->produtos()->count()}}</td>
+                        <td>{{$tipo->nome}} </td>
                         <td> {{$tipo->produtos()->count()}}</td>
 
                         <td>

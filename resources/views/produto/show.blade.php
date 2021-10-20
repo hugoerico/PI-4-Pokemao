@@ -2,6 +2,8 @@
 
 <nav aria-label="breadcrumb" class="mx-5">
     <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="{{url('/') }}">Projeto pi4</a></li>
         <li class="breadcrumb-item"><a href="{{url('/') }}">Pokemon</a></li>
         <li class="breadcrumb-item"><a href="{{url('/', $produto->categoria->nome)}}">{{ $produto->categoria->nome}}</a></li>
 

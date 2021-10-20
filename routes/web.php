@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\TipoController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ApiPedidosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +47,16 @@ Route::resource('/categoria', CategoriasController::class);
 //tipo
 
 Route::resource('/tipo', TipoController::class);
+
+//usuario
+Route::get('/usuarios', [UsuarioController::class, 'usuarios'])->name('usuario.usuarios');
+Route::get('/usuarios/edit/{id}', [UsuarioController::class, 'editar'])->name('usuario.editar');
+Route::patch('/usuario/updater/{id}', [UsuarioController::class, 'updater'])->name('usuario.updater');
+
+// todos pedidos 
+Route::get('/pedido',[ApiPedidosController::class,'pedidos'])->name('pedido.pedidos');
+Route::get('/pedido/edit/{id}', [ApiPedidosController::class, 'editarStatus'])->name('pedido.editarStatus');
+Route::patch('/pedido/updater/{id}', [ApiPedidosController::class, 'updaterStatus'])->name('pedido.updaterStatus');
+Route::get('/item/{id}',[ApiPedidosController::class,'item'])->name('pedido.item');
 
 });

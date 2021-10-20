@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>criar um produto</title>
+    <title>Criar um Produto</title>
 </head>
 
 <body>
@@ -24,21 +24,21 @@
             
             <div class="row">
                 <span class="form-label">Quantidade</span>
-                <input type="number" min="0" max="1000000" name="quantidade" class="form-control">
+                <input type="number" min="0" max="1000000" name="quantidade" class="form-control" required>
             </div>
             
             
             <div class="row">
                 <span class="form-label">Preço</span>
-                <input type="number" min="0.00" max="10000.00" name="preco" step="0.01" class="form-control">
+                <input type="number" min="0.00" max="10000.00" name="preco" step="0.01" class="form-control" required>
             </div>
             <div class="row">
-                <span class="form-label">Descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
+                <span class="form-label">Descrição</span >
+                <textarea class="form-control" name="descricao" required></textarea >
             </div>
             <div class="row">
                 <span class="form-label">Categoria</span>
-                <select class="form-select" name="categoria_id">
+                <select class="form-select" name="categoria_id" required>
                     @foreach($categorias as $categoria)
                     <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
                     @endforeach

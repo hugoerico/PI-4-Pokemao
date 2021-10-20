@@ -32,7 +32,7 @@
         aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
         <div class="navbar-nav">
         
           <a class="nav-link menuAdm" href="{{route('produto.index')}}" >Produto</a>
@@ -44,19 +44,29 @@
           <a class="nav-link menuAdm" href="{{route('tipo.index')}}">Tipo</a>
         
           <a class="nav-link menuAdm" href="{{route('produto.lixeira')}}">Lixeira</a>
+
+          <a class="nav-link menuAdm" href="{{route('usuario.usuarios')}}">Usuários</a>
+
+          <a class="nav-link menuAdm" href="{{Route('pedido.pedidos')}}">Pedidos</a>
+
+
+          
       
           <div class="nav-link d-flex menuAdm">{{ Auth::user()->name }}</div>
-       
+      
+          <div class="text-white" >
 
-          <form method="POST" action="{{ route('logout') }}">
+          <form  method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+          
+            <x-responsive-nav-link :href="route('logout')" class="text-white navbar-nav d-flex " style="text-decoration: underline;" onclick="event.preventDefault();
                                         this.closest('form').submit();" >
               {{ __('Log out') }}
             </x-responsive-nav-link>
           </form>
       
+          </div>
 
 
         </div>

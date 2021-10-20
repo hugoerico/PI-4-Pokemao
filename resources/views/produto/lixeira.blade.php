@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>lista apagador</title>
+    <title>Lixeira</title>
 </head>
 
 <body>
@@ -25,22 +25,22 @@
         <thead>
             <tr>
                 <th>
-                    id
+                    Id
                 </th>
                 <th>
-                    nome
+                    Nome
                 </th>
                 <th>
-                    quantidade
+                    Quantidade
                 </th>
                 <th>
-                    preço
+                    Preço
                 </th>
                 <th>
-                    descrição
+                    Descrição
                 </th>
                 <th>
-                    categoria
+                    Categoria
                 </th>
             </tr>
         </thead>

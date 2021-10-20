@@ -57,7 +57,7 @@
                 <tbody>
                     @foreach($produtos as $produto)
                     <tr>
-                        <td><img src="{{ URL::asset($produto->imagem)}}" style="width:35px"></td>
+                        <td><img src="{{ asset($produto->imagem)}}" style="width:35px"></td>
                         
                         
                         <td>{{$produto->id}}</td>
