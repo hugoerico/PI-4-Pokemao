@@ -63,12 +63,6 @@ Route::post('/login',[UsuarioController::class,'login']);
 //registrar
 Route::post('/registrar',[UsuarioController::class,'store']);
 
-<<<<<<< HEAD
-//logoff
-Route::get('/logoff',[UsuarioController::class, 'logoff']);
-=======
-
->>>>>>> 400ba14e37309a6bd7c679f7adf95ede7d2867bb
 
 
 //pedidos
