@@ -44,9 +44,9 @@ class ApiPedidosController extends Controller
         return response()->json(['Pedido' =>  'REALIZADO']);
     }
 
-    public function pedidos($id){
+    public function pedidos(){
 
-        return view('pedido.pedidos')->with(['pedidos'=>Pedido::where('user_id', '=',$id)->get()]);
+        return view('pedido.pedidos')->with(['pedidos'=>Pedido::all(), 'nomes'=>User::all()]);
     
     }
 
@@ -70,10 +70,10 @@ class ApiPedidosController extends Controller
     
     }
 
-    public function item($id){
+    public function item(){
 
 
-        return view('pedido.item')->with(['itens'=>Pedido_Item::where('pedido_id', '=',$id)->get()]);
+        return view('pedido.item')->with(['itens'=>Pedido_Item::All(),'produtos'=>Produto::All()]);
     
     }
 

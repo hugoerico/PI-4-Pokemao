@@ -45,7 +45,10 @@
         
           <a class="nav-link menuAdm" href="{{route('produto.lixeira')}}">Lixeira</a>
 
-          <a class="nav-link menuAdm" href="{{route('usuario.usuarios')}}">Usuarios</a>
+          <a class="nav-link menuAdm" href="{{route('usuario.usuarios')}}">Usuários</a>
+
+          <a class="nav-link menuAdm" href="{{Route('pedido.pedidos')}}">Pedidos</a>
+
 
           
       

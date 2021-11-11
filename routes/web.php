@@ -54,7 +54,7 @@ Route::get('/usuarios/edit/{id}', [UsuarioController::class, 'editar'])->name('u
 Route::patch('/usuario/updater/{id}', [UsuarioController::class, 'updater'])->name('usuario.updater');
 
 // todos pedidos 
-Route::get('/pedido/{id}',[ApiPedidosController::class,'pedidos'])->name('pedido.pedidos');
+Route::get('/pedido',[ApiPedidosController::class,'pedidos'])->name('pedido.pedidos');
 Route::get('/pedido/edit/{id}', [ApiPedidosController::class, 'editarStatus'])->name('pedido.editarStatus');
 Route::patch('/pedido/updater/{id}', [ApiPedidosController::class, 'updaterStatus'])->name('pedido.updaterStatus');
 Route::get('/item/{id}',[ApiPedidosController::class,'item'])->name('pedido.item');

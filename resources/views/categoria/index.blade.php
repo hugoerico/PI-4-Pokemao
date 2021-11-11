@@ -27,13 +27,16 @@
                 <thead>
                     <tr>
                         <th>
-                            id
+                            Id
                         </th>
                         <th>
-                            nome
+                            Nome
                         </th>
                         <th>
-                            opções
+                            Total Cadastrados
+                        </th>
+                        <th>
+                            Opções
                         </th>
                     </tr>
                 </thead>
@@ -41,7 +44,8 @@
                     @foreach($categorias as $categoria)
                     <tr>
                         <td>{{$categoria->id}}</td>
-                        <td>{{$categoria->nome}} {{$categoria->produtos()->count()}} </td>
+                        <td>{{$categoria->nome}} </td>
+                        <td> {{$categoria->produtos()->count()}} </td>
 
                         <td>
 
