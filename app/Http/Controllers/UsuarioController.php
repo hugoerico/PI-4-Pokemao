@@ -111,6 +111,25 @@ function updateEndereco(Request $request)
 
     }
 
+    function usuario()
+    
+    { 
+        
+        return response()->json( User::where('id',Auth()->user()->id )->first());
+    }
+
+    function usuarioeditar(Request $request)
+    
+    { 
+       
+        $usuario = User::where('id',Auth()->user()->id )->update(['name'=>$request->name,
+        'avatar'=>$request->avatar
+        
+    ]);
+    return response()->json('Perfil alterado');
+        
+    }
+
     
 }
  

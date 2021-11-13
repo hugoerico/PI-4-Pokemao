@@ -10,11 +10,18 @@
 @include('layouts.menu')
     <h1 class="h1Categoria">Cadastrar categoria</h1>
 
-    <form action="{{Route('categoria.store')}}" method="post">
+    <form action="{{Route('categoria.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     
+    <div class="row">
     <label for="" class="formCateg">Nome: </label>
     <input type="text" name="nome" class="inputCateg" >
+    </div>
+    <div class="row">
+                <span class="form-label">Icone</span>
+                <input type="file" class="form-control" name="icone">
+            </div>
+
 
    
 

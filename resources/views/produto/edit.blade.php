@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>editar um produto</title>
+    <title>Editar um Produto</title>
 </head>
 
 <body>
     @include('layouts.menu')
-    <h1 class="h1CriarProd">Editar produto</h1>
+    <h1 class="h1CriarProd">Editar produtos</h1>
 
     <form action="{{Route('produto.update',$produto->id)}}" method="post" enctype="multipart/form-data">
         @method('patch')

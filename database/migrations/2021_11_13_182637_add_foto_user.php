@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenamePedidoItemsToPedidoItems extends Migration
+class AddFotoUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class RenamePedidoItemsToPedidoItems extends Migration
      */
     public function up()
     {
-        Schema::rename('pedido_items', 'pedido__items');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->nullable();;
+        });
     }
 
     /**
@@ -23,8 +25,6 @@ class RenamePedidoItemsToPedidoItems extends Migration
      */
     public function down()
     {
-        Schema::table('pedido__items', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

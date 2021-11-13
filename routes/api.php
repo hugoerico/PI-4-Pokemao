@@ -25,6 +25,11 @@ Route::group(['middleware'=>'auth:sanctum'],function(){
     //aqui precisa estar logado
    //logoff
 Route::get('/logoff',[UsuarioController::class, 'logoff']);
+// info usuario
+Route::get('/user',[UsuarioController::class, 'usuario']);
+
+//
+Route::post('/user/edit',[UsuarioController::class, 'usuarioeditar']);
     //carrinho
 Route::get('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
 
@@ -62,7 +67,6 @@ Route::post('/login',[UsuarioController::class,'login']);
 
 //registrar
 Route::post('/registrar',[UsuarioController::class,'store']);
-
 
 
 

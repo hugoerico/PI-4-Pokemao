@@ -26,7 +26,7 @@ public function store(Request $request ) {
         $imagem = str_replace('public/', 'storage/', $imagem);
     } else {
         $imagem = "storage/produtos/imagempadrao.png";
-    }
+    } 
     
 
 

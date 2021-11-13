@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameEnderecoToEnderecos extends Migration
+class AddIconeCategoria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class RenameEnderecoToEnderecos extends Migration
      */
     public function up()
     {
-        
-        Schema::rename('endereco', 'enderecos');
+        Schema::table('categorias', function (Blueprint $table) {
+            $table->string('icone');
+        });
     }
 
     /**
@@ -24,6 +25,6 @@ class RenameEnderecoToEnderecos extends Migration
      */
     public function down()
     {
-        
+        //
     }
 }

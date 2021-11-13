@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>criar um produto</title>
+    <title>Pedidos</title>
 </head>
 
 <body>
@@ -37,7 +37,11 @@
                             Produto id
                         </th>
                         <th>
+<<<<<<< HEAD
                             Imegem
+=======
+                            Imagem
+>>>>>>> 9f41577542aa84862e004a3c3dc7fbc71807bd6c
                         </th>
 
                         <th>
@@ -81,7 +85,10 @@
             </table>
 
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9f41577542aa84862e004a3c3dc7fbc71807bd6c
 
     </main>
 </body>
