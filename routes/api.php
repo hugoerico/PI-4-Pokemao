@@ -30,7 +30,7 @@ Route::get('/user',[UsuarioController::class, 'usuario']);
 
 //
 Route::post('/user/edit',[UsuarioController::class, 'usuarioeditar']);
-    //carrinho
+    //acarrinho
 Route::get('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
 
 Route::get('/carrinho/remove/{produto}',[CarrinhoController::class,'remove'])->name('carrinho.remove');
