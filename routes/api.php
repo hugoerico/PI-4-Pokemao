@@ -40,6 +40,9 @@ Route::get('/pedidos/add/',[ApiPedidosController::class,'add']);
 
 
 });
+//midfeopsjfsopgjewpd
+Route::get('/carrinho/show/',[CarrinhoController::class,'show'])->name('carrinho.show');
+
 
 //todos os produtos
 Route::get('/produtos',[ApiProdutosController::class,'index']);
