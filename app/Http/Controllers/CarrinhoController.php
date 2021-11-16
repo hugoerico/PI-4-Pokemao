@@ -11,7 +11,7 @@ class CarrinhoController extends Controller
 {
     public function add(Produto $produto){
 
-        $item = Carrinho::where([['produto_id','=',$produto->id],['user_id','=',Auth()->user()->id]])->first();
+        $item = Carrinho::where([['produto_id','=',$produto->id],['user_id','=', 4]])->first();
 
 
         if ($item){
@@ -23,9 +23,14 @@ class CarrinhoController extends Controller
     
 
         Carrinho::create([
-            'user_id' => Auth()->user()->id,
+            'user_id' => 4,
             'produto_id' => $produto->id,
-            'quantidade' =>1
+            'quantidade' =>1,
+            'nome' => $produto->nome,
+            'preco'=> $produto->preco,
+            'descricao'=>$produto->descricao,
+            'imagem'=>$produto->imagem,
+
         ]);
     }
 
@@ -48,18 +53,25 @@ class CarrinhoController extends Controller
 
 
     }
-/*
+
     public function show(){
-       $carrinho = Carrinho::where(['user_id','=',Auth()->user()->id])->get();
 
-       return view('carrinho.show')->with('carrinho', $carrinho);
+       $carrinho = Carrinho::where('user_id', 4)->get();
+
+       return response()->json($carrinho); 
+      
     }
-    * */
+  
+//arrumar pedidos add.
 
-    public function show()
+
+  /* 
+   **Jeito que nao deu certo** 
+  
+  public function show()
     {
-       
-  //aqui id do usuario
+     
+  aqui id do usuario
       $carrinho = Carrinho::select('produto_id')->where('user_id', 4)->get();
    
   
@@ -75,6 +87,6 @@ class CarrinhoController extends Controller
       //aqui id do produto que ta no carrinho no lugar do 3
        $b = Produto::select('nome')->where('id', 3)->get();
        // $b[1] = Produto::select('nome')->where('id', 2)->get();
-      return response()->json($b);
-    }
+      return response()->json($produto); 
+    } **/
 }

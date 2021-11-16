@@ -16,12 +16,12 @@ class ApiPedidosController extends Controller
 {
     public function add(Request $request){
 
-        $carrinho = Carrinho::where('user_id', '=',Auth()->user()->id)->get();
-        $endereco = Endereco::where('user_id','=',Auth()->user()->id)->value('id');
+        $carrinho = Carrinho::where('user_id', '=',4)->get();
+        $endereco = Endereco::where('user_id','=',4)->value('id');
 
 
         $pedido=Pedido::create([
-            'user_id' => Auth()->user()->id,
+            'user_id' => 4,
             'endereco_id' => $endereco,
             'status' => 'Pedido realizado'
         ]);

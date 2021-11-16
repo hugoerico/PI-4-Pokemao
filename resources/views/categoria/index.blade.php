@@ -26,6 +26,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                    <th>
+                            Icone
+                        </th>
                         <th>
                             Id
                         </th>
@@ -40,9 +43,10 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach($categorias as $categoria)
-                    <tr>
+<tbody>
+
+@foreach($categorias as $categoria)
+                    <tr> <td><img src="{{ asset($categoria->icone)}}" style="width:35px"></td>
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->nome}} </td>
                         <td> {{$categoria->produtos()->count()}} </td>

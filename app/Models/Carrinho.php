@@ -10,7 +10,7 @@ class Carrinho extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','produto_id', 'quantidade'];
+    protected $fillable = ['user_id','produto_id', 'quantidade', 'nome', 'descricao', 'imagem', 'preco'];
 
     public function produto(){
         return Produto::where('id','=',$this->produto_id)->first();

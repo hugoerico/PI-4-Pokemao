@@ -20,7 +20,17 @@ class CategoriasController extends Controller
 
     public function store(Request $request)
     {
-        Categoria::create($request->all());
+        if ($request->icone) {
+            $icone = $request->file('icone')->store('/public/produtos');
+            $icone = str_replace('public/', 'storage/', $icone);
+        } else {
+            $icone = "storage/produtos/imagempadrao.png";
+        }
+
+        $categoria = Categoria::create([
+            'nome'=>$request->nome,
+            'icone'=>$icone
+        ]);
         session()->flash('sucesso', 'Novo categoria cadastrado com sucesso');
         return redirect(route('categoria.index'));
     }
@@ -28,15 +38,17 @@ class CategoriasController extends Controller
 
     public function show(Categoria $categoria)
     {
-        //
+        
     }
 
 
     public function edit(Categoria $categoria, $id)
     { 
+        
         $a = Categoria::where('id', $id)->value('id');
         $b = Categoria::where('id', $id)->value('nome');
-        $c=[$a,$b];
+        $d = Categoria::where('id', $id)->value('icone');
+        $c=[$a,$b,$d];
         
         return view('categoria.edit')->with('c',$c);
     }
@@ -44,10 +56,20 @@ class CategoriasController extends Controller
 
     public function update(Request $request, Categoria $categoria, $id)
     {   
-        
-        Categoria::where('id',$id)->update(['nome'=>$request->nome]);
+        if ($request->icone) {
+            $icone = $request->file('icone')->store('/public/produtos');
+            $icone = str_replace('public/', 'storage/', $icone);
+        } else {
+            $icone = Categoria::where('id',$id)->value('icone');
+        }
+        $categoria = Categoria::where('id',$id)->update([
+            'nome'=>$request->nome,
+            'icone'=>$icone
+        ]);
         session()->flash('sucesso', 'categoria alterado com sucesso');
         return redirect(route('categoria.index'));
+        
+        
     }
 
 

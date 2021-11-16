@@ -26,7 +26,7 @@ Route::group(['middleware'=>'auth:sanctum'],function(){
    //logoff
 Route::get('/logoff',[UsuarioController::class, 'logoff']);
     //carrinho
-Route::get('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
+
 
 Route::get('/carrinho/remove/{produto}',[CarrinhoController::class,'remove'])->name('carrinho.remove');
  
@@ -35,13 +35,15 @@ Route::post('/endereco',[UsuarioController::class,'endereco']);
 Route::post('update/endereco',[UsuarioController::class,'updateEndereco']);
 
 //pedidos
-Route::get('/pedidos/add/',[ApiPedidosController::class,'add']);
+
 
 
 
 });
 //midfeopsjfsopgjewpd
 Route::get('/carrinho/show/',[CarrinhoController::class,'show'])->name('carrinho.show');
+Route::post('/pedidos/add/',[ApiPedidosController::class,'add']);
+Route::post('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
 
 
 //todos os produtos
@@ -58,6 +60,7 @@ Route::get('/produtos/buscar/{nome}',[ApiProdutosController::class,'search']);
 
 //buscar produto por categoria
 Route::get('produtos/categoria/buscar/{nome}',[ApiCategoriaController::class,'search']);
+Route::get('/categorias',[ApiCategoriaController::class,'show']);
 
 
 //login

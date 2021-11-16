@@ -12,14 +12,20 @@
     @include('layouts.menu')
     <h1 class="h1Categoria"> Editar categoria</h1>
 
-    <form action="{{Route('categoria.update',$id=$c[0])}}" method="post">
+    <form action="{{Route('categoria.update',$id=$c[0])}}" method="post" enctype="multipart/form-data">
     @method('PATCH')
     @csrf
-
+        <img src="{{ asset($c[2])}}" style="width:60px">
         <label for="" class="formCateg">Nome:</label>
         <input type="text" name="nome" class="inputCateg" value="{{$c[1]}}">
 
-        
+        <div class="row">
+            <label class="form-label" for="">icone</label>
+            <input type="file" class="form-control" name="icone">
+
+        </div>
+
+
 
 
         <button class="btn botaoCriar" type="submit">Salvar</button>
