@@ -39,12 +39,14 @@ class CarrinhoController extends Controller
 
     public function remove(Produto $produto){
 
-        $item = Carrinho::where([['produto_id','=',$produto->id],['user_id','=',Auth()->user()->id]])->first();
+        $item = Carrinho::where([['produto_id','=',$produto->id],['user_id','=',4]])->first();
 
 
         if ($item->quantidade > 1){
            $item->update([
             'quantidade'=>$item->quantidade - 1
+
+            
         ]);
         
     }else{$item->delete();

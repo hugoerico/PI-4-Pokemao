@@ -76,6 +76,13 @@ class ApiPedidosController extends Controller
         return view('pedido.item')->with(['itens'=>Pedido_Item::All(),'produtos'=>Produto::All()]);
     
     }
+    public function show(){
+
+        
+        return response()->json(Pedido::where('user_id', 4)->get());
+        
+    
+    }
 
     
 }

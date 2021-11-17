@@ -44,6 +44,9 @@ Route::post('update/endereco',[UsuarioController::class,'updateEndereco']);
 Route::get('/carrinho/show/',[CarrinhoController::class,'show'])->name('carrinho.show');
 Route::post('/pedidos/add/',[ApiPedidosController::class,'add']);
 Route::post('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
+Route::post('/carrinho/remove/{produto}',[CarrinhoController::class,'remove'])->name('carrinho.remove');
+Route::get('/pedidos/show/',[ApiPedidosController::class,'show'])->name('pedido.show');
+
 
 
 //todos os produtos
