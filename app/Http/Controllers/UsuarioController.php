@@ -36,7 +36,7 @@ class UsuarioController extends Controller
     function logoff()
     
     { 
-        $user = User::where('id',Auth()->user()->id )->first();
+        $user = User::where('id',4 )->first();
         $user->tokens()->delete();
         return response()->json(['sucesso' =>  'Saiu com sucesso']);
     }
@@ -80,7 +80,7 @@ class UsuarioController extends Controller
     {
        
     $endereco = Endereco::create([
-        'user_id'=> Auth()->user()->id,
+        'user_id'=> 4,
         'cep'=>$request->cep,
         'estado'=>$request->estado,
         'cidade'=>$request->cidade,
@@ -96,7 +96,7 @@ class UsuarioController extends Controller
 function updateEndereco(Request $request)
     {
        
-    $endereco = Endereco::where('user_id',Auth()->user()->id)->update(['user_id'=> Auth()->user()->id,
+    $endereco = Endereco::where('user_id',4)->update(['user_id'=> 4,
         'cep'=>$request->cep,
         'estado'=>$request->estado,
         'cidade'=>$request->cidade,
@@ -111,6 +111,13 @@ function updateEndereco(Request $request)
 
     }
 
-    
+ 
+    function showEndereco(){ 
+
+        return response()->json(Endereco::where('user_id', 4)->get());
+    }
+
 }
+
+
  

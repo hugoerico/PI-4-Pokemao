@@ -9,6 +9,7 @@ use App\Models\Pedido;
 use App\Models\Pedido_Item;
 use App\Models\User;
 use App\Models\Endereco;
+
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Foreach_;
 
@@ -25,14 +26,21 @@ class ApiPedidosController extends Controller
             'endereco_id' => $endereco,
             'status' => 'Pedido realizado'
         ]);
+       
 
 
         foreach($carrinho as $item){
 
+            $produto = Produto::where('id', $item->produto_id,)->first();
+
             Pedido_Item::create([
+                
                 'pedido_id'=> $pedido->id,
                 'produto_id'=> $item->produto_id,
                 'quantidade'=> $item->quantidade,
+                'nome'=> $produto->nome,
+                'imagem'=> $produto->imagem,
+                'descricao'=> $produto->descricao,
                 'preco'=> $item->produto()->preco
 
             ]);
@@ -82,6 +90,11 @@ class ApiPedidosController extends Controller
         return response()->json(Pedido::where('user_id', 4)->get());
         
     
+    }
+
+    public function showProdutos($id){ 
+
+        return response()->json(Pedido_Item::where('pedido_id', $id)->get());
     }
 
     

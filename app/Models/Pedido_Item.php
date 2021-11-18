@@ -9,5 +9,5 @@ class Pedido_Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pedido_id','produto_id','quantidade','preco'];
+    protected $fillable = ['pedido_id','produto_id','quantidade','preco', 'nome', 'imagem', 'descricao'];
 }
