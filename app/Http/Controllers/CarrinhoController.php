@@ -9,72 +9,69 @@ use Illuminate\Support\Facades\Auth;
 
 class CarrinhoController extends Controller
 {
-    public function add(Produto $produto){
+    public function add(Produto $produto)
+    {
 
-        $item = Carrinho::where([['produto_id','=',$produto->id],['user_id','=', 4]])->first();
+        $item = Carrinho::where([['produto_id', '=', $produto->id], ['user_id', '=', Auth()->user()->id]])->first();
 
 
-        if ($item){
-           $item->update([
-            'quantidade'=>$item->quantidade +1
-        ]);
-    }else{
+        if ($item) {
+            $item->update([
+                'quantidade' => $item->quantidade + 1
+            ]);
+        } else {
 
-    
 
-        Carrinho::create([
-            'user_id' => 4,
-            'produto_id' => $produto->id,
-            'quantidade' =>1,
-            'nome' => $produto->nome,
-            'preco'=> $produto->preco,
-            'descricao'=>$produto->descricao,
-            'imagem'=>$produto->imagem,
 
-        ]);
+            Carrinho::create([
+                'user_id' => Auth()->user()->id,
+                'produto_id' => $produto->id,
+                'quantidade' => 1,
+                'nome' => $produto->nome,
+                'preco' => $produto->preco,
+                'descricao' => $produto->descricao,
+                'imagem' => $produto->imagem,
+
+            ]);
+        }
     }
 
+    public function remove(Produto $produto)
+    {
 
+        $item = Carrinho::where([['produto_id', '=', $produto->id], ['user_id', '=', Auth()->user()->id]])->first();
+
+
+        if ($item->quantidade > 1) {
+            $item->update([
+                'quantidade' => $item->quantidade - 1
+
+
+            ]);
+        } else {
+            $item->delete();
+        }
     }
 
-    public function remove(Produto $produto){
+    public function show()
+    {
 
-        $item = Carrinho::where([['produto_id','=',$produto->id],['user_id','=',4]])->first();
+        $carrinho = Carrinho::where('user_id',Auth()->user()->id)->get();
 
-
-        if ($item->quantidade > 1){
-           $item->update([
-            'quantidade'=>$item->quantidade - 1
-
-            
-        ]);
-        
-    }else{$item->delete();
-
+        return response()->json($carrinho);
     }
 
-
-    }
-
-    public function show(){
-
-       $carrinho = Carrinho::where('user_id', 4)->get();
-
-       return response()->json($carrinho); 
-      
-    }
-  
-//arrumar pedidos add.
+    //arrumar pedidos add.
 
 
-  /* 
+    /* 
    **Jeito que nao deu certo** 
   
   public function show()
     {
      
   aqui id do usuario
-      $carrinho = Carrinho::select('produto_id')->where('user_id', 4)->get();
+      $carrinho = Carrinho::select('produto_id')->where('user_id', Auth()->user()->id)->get();
    
   
       foreach ($carrinho as $prod) {

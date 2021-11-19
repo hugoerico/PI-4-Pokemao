@@ -20,67 +20,57 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware'=>'auth:sanctum'],function(){
+Route::group(['middleware' => 'auth:sanctum'], function () {
 
-    //aqui precisa estar logado
-   //logoff
-Route::get('/logoff',[UsuarioController::class, 'logoff']);
-    //carrinho
+  //aqui precisa estar logado
+  //logoff
+  Route::get('/logoff', [UsuarioController::class, 'logoff']);
+  //carrinho
+  Route::get('/carrinho/show/', [CarrinhoController::class, 'show'])->name('carrinho.show');
+  Route::post('/carrinho/add/{produto}', [CarrinhoController::class, 'add'])->name('carrinho.add');
+  Route::post('/carrinho/remove/{produto}', [CarrinhoController::class, 'remove'])->name('carrinho.remove');
+  //Route::get('/carrinho/remove/{produto}', [CarrinhoController::class, 'remove'])->name('carrinho.remove');
 
+  //Usuario 
+  Route::get('/user',[UsuarioController::class, 'usuario']);
+  Route::post('/user/edit',[UsuarioController::class, 'usuarioeditar']);
 
-Route::get('/carrinho/remove/{produto}',[CarrinhoController::class,'remove'])->name('carrinho.remove');
- 
   //endereço
+  Route::post('/endereco', [UsuarioController::class, 'endereco']);
+  Route::post('/update/endereco', [UsuarioController::class, 'updateEndereco']);
+  Route::get('/endereco/show', [UsuarioController::class, 'showEndereco']);
 
+  //pedidos
+  Route::get('/pedidos/show/', [ApiPedidosController::class, 'show'])->name('pedido.show');
+  Route::post('/pedidos/add/', [ApiPedidosController::class, 'add']);
+  Route::get('/pedidos/itens/{id}', [ApiPedidosController::class, 'showProdutos']);
 
-//pedidos
-
-
-
-
+ 
 });
-//midfeopsjfsopgjewpd
-Route::get('/carrinho/show/',[CarrinhoController::class,'show'])->name('carrinho.show');
-Route::post('/pedidos/add/',[ApiPedidosController::class,'add']);
-Route::post('/carrinho/add/{produto}',[CarrinhoController::class,'add'])->name('carrinho.add');
-Route::post('/carrinho/remove/{produto}',[CarrinhoController::class,'remove'])->name('carrinho.remove');
-Route::get('/pedidos/show/',[ApiPedidosController::class,'show'])->name('pedido.show');
-Route::post('/endereco',[UsuarioController::class,'endereco']);
-Route::post('/update/endereco',[UsuarioController::class,'updateEndereco']);
-Route::get('/endereco/show',[UsuarioController::class,'showEndereco']);
-Route::get('/pedidos/itens/{id}', [ApiPedidosController::class, 'showProdutos']);
-
-
 
 //todos os produtos
-Route::get('/produtos',[ApiProdutosController::class,'index']);
+Route::get('/produtos', [ApiProdutosController::class, 'index']);
 
 //1 produto
 //Route::get('/produto/{produto}',[ApiProdutosController::class,'show']);
 //1 produto
-Route::get('/produto/{id}',[ApiProdutosController::class,'show']);
+Route::get('/produto/{id}', [ApiProdutosController::class, 'show']);
 
 //buscar produto no Pesquisar
-Route::get('/produtos/buscar/{nome}',[ApiProdutosController::class,'search']);
+Route::get('/produtos/buscar/{nome}', [ApiProdutosController::class, 'search']);
 
 
 //buscar produto por categoria
-Route::get('produtos/categoria/buscar/{nome}',[ApiCategoriaController::class,'search']);
-Route::get('/categorias',[ApiCategoriaController::class,'show']);
-
+Route::get('produtos/categoria/buscar/{nome}', [ApiCategoriaController::class, 'search']);
+Route::get('/categorias', [ApiCategoriaController::class, 'show']);
 
 //login
-Route::post('/login',[UsuarioController::class,'login']);
+Route::post('/login', [UsuarioController::class, 'login']);
 
 //registrar
-Route::post('/registrar',[UsuarioController::class,'store']);
+Route::post('/registrar', [UsuarioController::class, 'store']);
 
 
 
 //pedidos
-Route::get('/pedidos/add/{produto}',[ApiPedidosController::class,'add']);
-
-
-
-
-
+Route::get('/pedidos/add/{produto}', [ApiPedidosController::class, 'add']);
