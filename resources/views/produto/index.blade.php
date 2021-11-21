@@ -20,6 +20,12 @@
             {{session()->get('sucesso')}}
         </div>
         @endif
+        <div >
+            <form id="pesquisar" class="form-inline d-flex pb-3 " method="get" action="{{ route('search') }}">
+                            <input class="form-control mr-sm-2 " size="70" type="text" name="search" placeholder="Pesquisar por Nome do Pokemon" aria-label="Search">
+                            <button class="btn btn-outline-success botaoPesquisar " type="submit">Pesquisar</button>
+                        </form>
+        </div>
 
         <a href="{{Route('produto.create')}}" class="btn botaoCriar btn-lg">criar produto</a>
 

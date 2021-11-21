@@ -16,7 +16,7 @@
 
     <label for="" class="formCateg">Nome: </label>
     <input type="text" name="nome" class="inputCateg"
-    value="{{$tipo->nome}}">
+    value="{{$tipo->nome}}"required>
 
     
 

@@ -38,7 +38,7 @@ class CategoriasController extends Controller
 
     public function show(Categoria $categoria)
     {
-        //
+        
     }
 
 
@@ -81,4 +81,11 @@ class CategoriasController extends Controller
         session()->flash('sucesso', 'Categoria apagado com sucesso');
         return redirect(route('categoria.index'));
     }
+    public function search4(Request $request)
+{
+  $search = $request->input('search');
+  return view('categoria.index')->with( 'categorias',Categoria::where('nome','LIKE',"%{$search}%")->get());
+
+  
+}
 }

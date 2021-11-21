@@ -17,7 +17,7 @@
     @csrf
         <img src="{{ asset($c[2])}}" style="width:60px">
         <label for="" class="formCateg">Nome:</label>
-        <input type="text" name="nome" class="inputCateg" value="{{$c[1]}}">
+        <input type="text" name="nome" class="inputCateg" value="{{$c[1]}}" required>
 
         <div class="row">
             <label class="form-label" for="">icone</label>
@@ -25,7 +25,6 @@
 
         </div>
 
-        
 
 
         <button class="btn botaoCriar" type="submit">Salvar</button>

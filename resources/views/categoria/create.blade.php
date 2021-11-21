@@ -12,10 +12,9 @@
 
     <form action="{{Route('categoria.store')}}" method="post" enctype="multipart/form-data">
     @csrf
-    
     <div class="row">
     <label for="" class="formCateg">Nome: </label>
-    <input type="text" name="nome" class="inputCateg" >
+    <input type="text" name="nome" class="inputCateg" required>
     </div>
     <div class="row">
                 <span class="form-label">Icone</span>
@@ -23,12 +22,11 @@
             </div>
 
 
-   
 
     <button class=" btn botaoCriar" type="submit">Salvar</button>
 
 
     </form>
-    
+
 </body>
 </html>

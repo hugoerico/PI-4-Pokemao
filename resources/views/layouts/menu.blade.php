@@ -50,9 +50,6 @@
           <a class="nav-link menuAdm" href="{{Route('pedido.pedidos')}}">Pedidos</a>
 
 
-          <a class="nav-link menuAdm" href="{{Route('pedido.pedidos')}}">Pedidos</a>
-
-
           
       
           <div class="nav-link d-flex menuAdm">{{ Auth::user()->name }}</div>

@@ -72,7 +72,7 @@
 
         <div class="row">
             <label class="form-label" for="">Imagem</label>
-            <input type="file" class="form-control" name="imagem">
+            <input type="file" class="form-control" name="imagem" required>
 
         </div>
 

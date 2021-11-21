@@ -94,6 +94,14 @@ public function show(Produto $produto){
     return view('produto.show')->with(['produto'=>$produto, 'categorias'=>Categoria::all(), 'tipos'=> Tipo::all()]);
 }
 
+public function search(Request $request)
+{
+  $search = $request->input('search');
+  return view('produto.index')->with( 'produtos',Produto::where('nome','LIKE',"%{$search}%")->get());
+
+  
+}
+
 
 
 

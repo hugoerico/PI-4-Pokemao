@@ -37,11 +37,8 @@
                             Produto id
                         </th>
                         <th>
-<<<<<<< HEAD
-                            Imegem
-=======
                             Imagem
->>>>>>> 9f41577542aa84862e004a3c3dc7fbc71807bd6c
+
                         </th>
 
                         <th>
@@ -85,10 +82,6 @@
             </table>
 
         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 9f41577542aa84862e004a3c3dc7fbc71807bd6c
 
     </main>
 </body>

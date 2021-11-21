@@ -17,6 +17,11 @@ class ApiCategoriaController extends Controller
       $categoria=Categoria::where('nome', $search)->value('id');
 
       return response()->json(Produto::where('categoria_id', $categoria)->get());
+    } 
+
+    public function show() { 
+
+      return response()->json(Categoria::all());
     }
 
     
