@@ -71,6 +71,5 @@ Route::post('/login', [UsuarioController::class, 'login']);
 Route::post('/registrar', [UsuarioController::class, 'store']);
 
 
-
 //pedidos
 Route::get('/pedidos/add/{produto}', [ApiPedidosController::class, 'add']);

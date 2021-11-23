@@ -137,4 +137,19 @@ class UsuarioController extends Controller
         ]);
         return response()->json('Perfil alterado');
     }
+
+    public function search2(Request $request)
+    {
+        $search = $request->input('search');
+        return view('usuario.usuarios')->with('usuarios', User::where('name', 'LIKE', "%{$search}%")->get());
+    }
+
+    public function destroy(User $usuario,$id)
+    {
+    
+     User::where('id', $id)->delete();
+     session()->flash('sucesso','Usuario apagado com sucesso');
+     return redirect(route('usuario.usuarios'));
+     
+    }
 }

@@ -44,6 +44,8 @@ class ApiPedidosController extends Controller
                 'preco'=> $item->produto()->preco
 
             ]);
+           // $quantidade = Produto::where('id', $item->produto_id)->value('quantidade');
+           // Produto::where('id', $item->produto_id)->update('quantidade',$quantidade - $item->quantidade);
 
             $item->delete();
 
@@ -78,10 +80,10 @@ class ApiPedidosController extends Controller
     
     }
 
-    public function item(){
+    public function item($id){
 
-
-        return view('pedido.item')->with(['itens'=>Pedido_Item::All(),'produtos'=>Produto::All()]);
+    
+        return view('pedido.item')->with(['itens'=>Pedido_Item::where('pedido_id', $id)->get()]);
     
     }
     public function show(){
@@ -96,6 +98,13 @@ class ApiPedidosController extends Controller
 
         return response()->json(Pedido_Item::where('pedido_id', $id)->get());
     }
+
+    public function search3(Request $request)
+{
+  $search = $request->input('search');
+  return view('pedido.pedidos')->with([ 'pedidos'=>Pedido::where('id','LIKE',"%{$search}%")->get(),'nomes'=>User::all()]);
+
+}
 
     
 }

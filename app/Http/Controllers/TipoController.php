@@ -57,4 +57,12 @@ class TipoController extends Controller
      session()->flash('sucesso','Tipo apagado com sucesso');
      return redirect(route('tipo.index'));
     }
+
+    public function search5(Request $request)
+{
+  $search = $request->input('search');
+  return view('tipo.index')->with( 'tipos',Tipo::where('nome','LIKE',"%{$search}%")->get());
+
+  
+}
 }

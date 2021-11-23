@@ -13,6 +13,12 @@
 <body>
     @include('layouts.menu')
     <main class="container mt-5">
+    <div >
+            <form id="pesquisar" class="form-inline d-flex pb-3 " method="get" action="{{ route('search4') }}">
+                            <input class="form-control mr-sm-2 " size="70" type="text" name="search" placeholder="Pesquisar por Nome da Categoria" aria-label="Search">
+                            <button class="btn btn-outline-success botaoPesquisar " type="submit">Pesquisar</button>
+                        </form>
+        </div>
         @if(session()->has('sucesso'))
         <div>
             {{session()->get('sucesso')}}

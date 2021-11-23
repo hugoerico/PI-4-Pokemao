@@ -11,7 +11,14 @@
 
 <body>
     @include('layouts.menu')
+
     <main class="container mt-5 formCriarProd">
+        <div>
+            <form id="pesquisar" class="form-inline d-flex pb-3 " method="get" action="{{ route('search2') }}">
+                <input class="form-control mr-sm-2 " size="70" type="text" name="search" placeholder="Pesquisar por Nome " aria-label="Search">
+                <button class="btn btn-outline-success botaoPesquisar " type="submit">Pesquisar</button>
+            </form>
+        </div>
         <h1 class="h1CriarProd">Usuários Cadastrados</h1>
 
         <div class="mt-3 tabelaUsuario">
@@ -55,6 +62,14 @@
                         <td>
                             <a href="{{Route('usuario.editar',$id=$usuario->id)}}" class="btn btn-warning botaoIndex">editar</a>
 
+                            <form method="post" action="{{Route('usuario.destroy',$id=$usuario->id)}}">
+
+                                @method('GET')
+                                @csrf
+
+                                <button type="submit" class="btn-danger btn mt-2 botaoIndex">apagar</button>
+                            </form>
+
                         </td>
                     </tr>
 
@@ -63,7 +78,7 @@
             </table>
 
         </div>
-       
+
 
     </main>
 </body>
