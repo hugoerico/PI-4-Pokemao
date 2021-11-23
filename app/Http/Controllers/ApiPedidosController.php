@@ -45,13 +45,18 @@ class ApiPedidosController extends Controller
 
             ]);
             $quantidade = Produto::where('id', $item->produto_id)->value('quantidade');
-            Produto::where('id', $item->produto_id)->update('quantidade',$quantidade - $item->quantidade);
+            $menos =$item->quantidade;
+            $novaQuantidade= $quantidade - $menos;
 
+            Produto::where('id', $item->produto_id)->update(['quantidade'=>$novaQuantidade]);
+
+            
             $item->delete();
+
 
             
         }
-        return response()->json(['Pedido' =>  'REALIZADO']);
+        return response()->json(['Pedido' => 'Realizado']);
     }
 
     public function pedidos(){
@@ -103,6 +108,13 @@ class ApiPedidosController extends Controller
 {
   $search = $request->input('search');
   return view('pedido.pedidos')->with([ 'pedidos'=>Pedido::where('id','LIKE',"%{$search}%")->get(),'nomes'=>User::all()]);
+
+}
+public function ultimo(){
+
+        
+    return response()->json(Pedido::where('user_id', Auth()->user()->id)->orderBy('id','DESC')->get());
+    
 
 }
 

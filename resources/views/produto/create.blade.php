@@ -56,6 +56,13 @@
                 </select>
             </div>
             <div class="row">
+                <span class="form-label">Destaque</span>
+                <select class="form-select" name="destaque">  
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                </select>
+            </div>
+            <div class="row">
                 <span class="form-label">Imagem</span>
                 <input type="file" class="form-control" name="imagem">
             </div>

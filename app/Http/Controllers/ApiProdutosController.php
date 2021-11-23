@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tipo;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -25,5 +26,12 @@ class ApiProdutosController extends Controller
   {
     $search = $nome;
     return response()->json(Produto::where('nome', 'LIKE', '%' . $search . '%')->get());
+  }
+
+  public function destaque()
+  {
+    
+    return response()->json(Produto::where('destaque', 'Sim')->get());
+    
   }
 }

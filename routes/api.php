@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
   Route::get('/pedidos/show/', [ApiPedidosController::class, 'show'])->name('pedido.show');
   Route::post('/pedidos/add/', [ApiPedidosController::class, 'add']);
   Route::get('/pedidos/itens/{id}', [ApiPedidosController::class, 'showProdutos']);
+  Route::get('/pedidos/ultimo/', [ApiPedidosController::class, 'ultimo'])->name('pedido.ultimo');
 
  
 });
@@ -73,3 +74,6 @@ Route::post('/registrar', [UsuarioController::class, 'store']);
 
 //pedidos
 Route::get('/pedidos/add/{produto}', [ApiPedidosController::class, 'add']);
+
+//destaque
+Route::get('/destaque', [ApiProdutosController::class, 'destaque']);

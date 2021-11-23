@@ -56,6 +56,9 @@
                             Categoria
                         </th>
                         <th>
+                            Destaque
+                        </th>
+                        <th>
                             Opções
                         </th>
                     </tr>
@@ -73,6 +76,7 @@
                         <td>{{$produto->descricao}}</td>
 
                         <td>{{$produto->categoria->nome}}</td>
+                        <td>{{$produto->destaque}}</td>
 
 
                         <td>
