@@ -69,6 +69,15 @@
             </select>
 
         </div>
+        <div class="row">
+                <span class="form-label">Destaque</span>
+
+                <select class="form-select" name="destaque">  
+                    <option value="{{$produto->destaque}}">{{$produto->destaque}}</option selected>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                </select>
+            </div>
 
         <div class="row">
             <label class="form-label" for="">Imagem</label>
