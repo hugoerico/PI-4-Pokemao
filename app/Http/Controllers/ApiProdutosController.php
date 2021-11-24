@@ -34,4 +34,6 @@ class ApiProdutosController extends Controller
     return response()->json(Produto::where('destaque', 'Sim')->get());
     
   }
+
+ 
 }
