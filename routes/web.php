@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 
-Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware' => 'auth'], function(){
 //produto
 
 Route::resource('/produto', ProdutosController::class);
