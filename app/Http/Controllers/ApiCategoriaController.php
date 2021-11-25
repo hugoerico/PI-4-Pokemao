@@ -23,6 +23,11 @@ class ApiCategoriaController extends Controller
 
       return response()->json(Categoria::all());
     }
+    public function mostraId($id) {
+      
+      return response()->json(Produto::where('categoria_id', $id)->get());
+
+    }
 
     
 }

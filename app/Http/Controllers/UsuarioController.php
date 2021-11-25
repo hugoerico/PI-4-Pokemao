@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Pedido;
 use App\Models\Endereco;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -151,4 +150,20 @@ class UsuarioController extends Controller
      return redirect(route('usuario.usuarios'));
      
     }
+    
+    public function storeImg(Request $request){ 
+
+      //  dd(Auth()->user());
+        if ($request->imagem) {
+            $imagem = $request->file('imagem')->store('/public/User');
+            $imagem = str_replace('public/', 'storage/', $imagem);
+        } else {
+            $imagem = "storage/user/imagempadrao.png";
+        }
+        
+        $user = User::where('id', Auth()->user()->id)->first(); 
+        $user->avatar = $imagem;
+        $user->save(); 
+    }
+
 }

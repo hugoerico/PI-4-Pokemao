@@ -36,6 +36,7 @@ public function store(Request $request ) {
         'preco'=>$request->preco,
         'descricao'=>$request->descricao,
         'categoria_id'=>$request->categoria_id,
+        'destaque'=>$request->destaque,
         'imagem'=>$imagem
     ]);
     $produto->tipos()->sync($request->tipos);
@@ -64,6 +65,7 @@ public function update(Request $request, Produto $produto) {
         'preco'=>$request->preco,
         'descricao'=>$request->descricao,
         'categoria_id'=>$request->categoria_id,
+        'destaque'=>$request->destaque,
         'imagem'=>$imagem
     ]);
     $produto->tipos()->sync($request->tipos);

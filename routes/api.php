@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
   //Usuario 
   Route::get('/user',[UsuarioController::class, 'usuario']);
   Route::post('/user/edit',[UsuarioController::class, 'usuarioeditar']);
+  Route::post('/user/avatar',[UsuarioController::class, 'storeImg']);
 
   //endereço
   Route::post('/endereco', [UsuarioController::class, 'endereco']);
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
   Route::get('/pedidos/show/', [ApiPedidosController::class, 'show'])->name('pedido.show');
   Route::post('/pedidos/add/', [ApiPedidosController::class, 'add']);
   Route::get('/pedidos/itens/{id}', [ApiPedidosController::class, 'showProdutos']);
+  Route::get('/pedidos/ultimo/', [ApiPedidosController::class, 'ultimo'])->name('pedido.ultimo');
 
  
 });
@@ -63,6 +65,7 @@ Route::get('/produtos/buscar/{nome}', [ApiProdutosController::class, 'search']);
 //buscar produto por categoria
 Route::get('produtos/categoria/buscar/{nome}', [ApiCategoriaController::class, 'search']);
 Route::get('/categorias', [ApiCategoriaController::class, 'show']);
+Route::get('/categorias/{id}', [ApiCategoriaController::class, 'mostraId']);
 
 //login
 Route::post('/login', [UsuarioController::class, 'login']);
@@ -73,3 +76,6 @@ Route::post('/registrar', [UsuarioController::class, 'store']);
 
 //pedidos
 Route::get('/pedidos/add/{produto}', [ApiPedidosController::class, 'add']);
+
+//destaque
+Route::get('/destaque', [ApiProdutosController::class, 'destaque']);

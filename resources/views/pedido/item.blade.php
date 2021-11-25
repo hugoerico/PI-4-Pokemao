@@ -14,11 +14,11 @@
     <main class="container mt-5 formCriarProd">
         <h1 class="h1CriarProd">Item</h1>
         <h3>Total <?php 
-                       $valor=0;
+                       $valor=0.0;
                         foreach ($itens as $item) {
                             $valor= $valor + $item->preco;
                         }
-                        echo($valor);
+                        echo($valor .  ".00");
                         
                         ?></h3>
 
@@ -38,7 +38,6 @@
                         </th>
                         <th>
                             Imagem
-
                         </th>
 
                         <th>
@@ -61,14 +60,8 @@
                         <td>{{$item->pedido_id}}</td>
                         <td>{{$item->produto_id}}</td>
                         <td>
-
-                            <img src="{{ asset(<?php
-                                                foreach ($produtos as $produto) {
-                                                    if ($produto->id == $item->produto_id) {
-                                                        echo ($produto->imagem);
-                                                    }
-                                                }
-                                                ?>)}}" style="width:35px">
+                        
+                        <img src="{{ asset($item->imagem)}}" style="width:35px">
 
                         </td>
                         <td>{{$item->quantidade}}</td>
