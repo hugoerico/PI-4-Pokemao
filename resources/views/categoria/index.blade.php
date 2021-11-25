@@ -13,6 +13,12 @@
 <body>
     @include('layouts.menu')
     <main class="container mt-5">
+    <div >
+            <form id="pesquisar" class="form-inline d-flex pb-3 " method="get" action="{{ route('search4') }}">
+                            <input class="form-control mr-sm-2 " size="70" type="text" name="search" placeholder="Pesquisar por Nome da Categoria" aria-label="Search">
+                            <button class="btn btn-outline-success botaoPesquisar " type="submit">Pesquisar</button>
+                        </form>
+        </div>
         @if(session()->has('sucesso'))
         <div>
             {{session()->get('sucesso')}}
@@ -26,22 +32,30 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>
-                            id
+                    <th>
+                            Icone
                         </th>
                         <th>
-                            nome
+                            Id
                         </th>
                         <th>
-                            opções
+                            Nome
+                        </th>
+                        <th>
+                            Total Cadastrados
+                        </th>
+                        <th>
+                            Opções
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach($categorias as $categoria)
-                    <tr>
+<tbody>
+
+@foreach($categorias as $categoria)
+                    <tr> <td><img src="{{ asset($categoria->icone)}}" style="width:35px"></td>
                         <td>{{$categoria->id}}</td>
-                        <td>{{$categoria->nome}} {{$categoria->produtos()->count()}} </td>
+                        <td>{{$categoria->nome}} </td>
+                        <td> {{$categoria->produtos()->count()}} </td>
 
                         <td>
 

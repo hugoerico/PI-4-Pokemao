@@ -37,7 +37,8 @@
                             Produto id
                         </th>
                         <th>
-                            Imegem
+                            Imagem
+
                         </th>
 
                         <th>
@@ -81,7 +82,6 @@
             </table>
 
         </div>
-
 
     </main>
 </body>

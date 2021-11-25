@@ -14,7 +14,7 @@
     @csrf
 
     <label for="" class="formCateg">Nome: </label>
-    <input type="text" name="nome" class="inputCateg" >
+    <input type="text" name="nome" class="inputCateg" required>
 
    
 

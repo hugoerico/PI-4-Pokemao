@@ -25,17 +25,26 @@ class ApiPedidosController extends Controller
             'endereco_id' => $endereco,
             'status' => 'Pedido realizado'
         ]);
+       
 
 
         foreach($carrinho as $item){
 
+            $produto = Produto::where('id', $item->produto_id,)->first();
+
             Pedido_Item::create([
+                
                 'pedido_id'=> $pedido->id,
                 'produto_id'=> $item->produto_id,
                 'quantidade'=> $item->quantidade,
+                'nome'=> $produto->nome,
+                'imagem'=> $produto->imagem,
+                'descricao'=> $produto->descricao,
                 'preco'=> $item->produto()->preco
 
             ]);
+            $quantidade = Produto::where('id', $item->produto_id)->value('quantidade');
+            Produto::where('id', $item->produto_id)->update('quantidade',$quantidade - $item->quantidade);
 
             $item->delete();
 
@@ -76,6 +85,25 @@ class ApiPedidosController extends Controller
         return view('pedido.item')->with(['itens'=>Pedido_Item::All(),'produtos'=>Produto::All()]);
     
     }
+    public function show(){
+
+        
+        return response()->json(Pedido::where('user_id', Auth()->user()->id)->get());
+        
+    
+    }
+
+    public function showProdutos($id){ 
+
+        return response()->json(Pedido_Item::where('pedido_id', $id)->get());
+    }
+
+    public function search3(Request $request)
+{
+  $search = $request->input('search');
+  return view('pedido.pedidos')->with([ 'pedidos'=>Pedido::where('id','LIKE',"%{$search}%")->get(),'nomes'=>User::all()]);
+
+}
 
     
 }

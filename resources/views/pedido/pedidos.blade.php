@@ -12,6 +12,12 @@
 <body>
     @include('layouts.menu')
     <main class="container mt-5 formCriarProd">
+    <div >
+            <form id="pesquisar" class="form-inline d-flex pb-3 " method="get" action="{{ route('search3') }}">
+                            <input class="form-control mr-sm-2 " size="70" type="text" name="search" placeholder="Pesquisar por Número do Pedido" aria-label="Search">
+                            <button class="btn btn-outline-success botaoPesquisar " type="submit">Pesquisar</button>
+                        </form>
+        </div>
         <h1 class="h1CriarProd">Pedidos</h1>
 
         <div class="mt-3">
@@ -20,7 +26,7 @@
                     <tr>
 
                         <th>
-                            ID
+                            Número do Pedido
                         </th>
                         <th>
                            Usuário ID
