@@ -50,6 +50,10 @@ class ApiPedidosController extends Controller
 
             Produto::where('id', $item->produto_id)->update(['quantidade'=>$novaQuantidade]);
 
+            if ($novaQuantidade==0) {
+                Produto::where('id', $item->produto_id)->delete();
+            }
+
             
             $item->delete();
 

@@ -28,8 +28,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
-Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware' => 'IsAdmin'], function () {
 //produto
 
 Route::resource('/produto', ProdutosController::class);
@@ -66,3 +65,7 @@ Route::patch('/pedido/updater/{id}', [ApiPedidosController::class, 'updaterStatu
 Route::get('/item/{id}',[ApiPedidosController::class,'item'])->name('pedido.item');
 
 });
+
+
+    
+
