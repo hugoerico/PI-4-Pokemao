@@ -26,7 +26,7 @@
         </div>
         @endif
 
-        <a href="{{route('tipo.create')}}" class="btn botaoCriar">Criar Tipo</a>
+        <a href="{{route('tipo.create')}}" class="btn botaoCriar btn-lg">Criar Tipo</a>
 
 
         <div class="mt-5">

@@ -25,7 +25,7 @@
         </div>
         @endif
 
-        <a href="{{Route('categoria.create')}}" class="btn botaoCriar">Criar Categoria</a>
+        <a href="{{Route('categoria.create')}}" class="btn botaoCriar btn-lg">Criar Categoria</a>
 
 
         <div>

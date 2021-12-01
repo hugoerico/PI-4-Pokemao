@@ -12,7 +12,7 @@
 <body>
     @include('layouts.menu')
     <main class="container mt-5 formCriarProd">
-        <h1 class="h1CriarProd">Usuarios torna admin</h1>
+        <h1 class="h1CriarProd">Mudar status do pedido</h1>
 
         <form action="{{Route('pedido.updaterStatus',$id=$tudo[0])}}" method="post" >
         @method('patch')
@@ -46,7 +46,7 @@
 
                 <option value="Pedido Cancelado" >Pedido Cancelado</option>
 
-                <option value="Erro por gentileza entre em contato com os sac" >Erro por gentileza entre em contato com os sac</option>
+                <option value="Erro por gentileza entre em contato com os sac" >Erro por gentileza entre em contato com o SAC </option>
 
             </select>
 
@@ -54,7 +54,7 @@
 
         <div class="row mt-4">
 
-                <button type="submit" class="btn btn-success btn-sm mb-4">Salvar</button>
+                <button type="submit" class="btn btn-success btn-lg mb-4">Salvar</button>
 
         </div>
         </form>

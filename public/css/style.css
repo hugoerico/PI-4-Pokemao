@@ -28,6 +28,8 @@ body {
 .formCriarProd{
     background-color: #f4f8ff;
     border-radius: 10px;
+    padding-top: 2rem ;
+    padding-bottom: 2rem;
 }
 .row{
     margin-left: 1rem;
@@ -50,4 +52,8 @@ body {
 }
 .tabelaUsuario { 
     padding-bottom : 10px;
+}
+.botaoSalvar {
+    margin-left: 1rem;
+    margin-top: 1rem;
 }

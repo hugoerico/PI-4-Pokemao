@@ -50,7 +50,7 @@
 
         <div class="row mt-4">
 
-                <button type="submit" class="btn btn-success btn-sm mb-4">Salvar</button>
+                <button type="submit" class="btn btn-success btn-lg mb-4">Salvar</button>
 
         </div>
         </form>

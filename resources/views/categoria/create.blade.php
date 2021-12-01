@@ -17,13 +17,13 @@
     <input type="text" name="nome" class="inputCateg" required>
     </div>
     <div class="row">
-                <span class="form-label">Icone</span>
+                <span class="form-label mt-3">Icone</span>
                 <input type="file" class="form-control" name="icone">
             </div>
 
 
 
-    <button class=" btn botaoCriar" type="submit">Salvar</button>
+    <button class=" btn btn-success mb-4 botaoSalvar" type="submit">Salvar</button>
 
 
     </form>

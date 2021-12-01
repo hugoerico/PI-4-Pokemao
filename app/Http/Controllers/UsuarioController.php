@@ -150,20 +150,19 @@ class UsuarioController extends Controller
      return redirect(route('usuario.usuarios'));
      
     }
-    
+
     public function storeImg(Request $request){ 
 
-      //  dd(Auth()->user());
-        if ($request->imagem) {
-            $imagem = $request->file('imagem')->store('/public/User');
-            $imagem = str_replace('public/', 'storage/', $imagem);
-        } else {
-            $imagem = "storage/user/imagempadrao.png";
-        }
-        
-        $user = User::where('id', Auth()->user()->id)->first(); 
-        $user->avatar = $imagem;
-        $user->save(); 
-    }
-
+        //  dd(Auth()->user());
+          if ($request->imagem) {
+              $imagem = $request->file('imagem')->store('/public/User');
+              $imagem = str_replace('public/', 'storage/', $imagem);
+          } else {
+              $imagem = "storage/user/imagempadrao.png";
+          }
+          
+          $user = User::where('id', Auth()->user()->id)->first(); 
+          $user->avatar = $imagem;
+          $user->save(); 
+      }
 }
