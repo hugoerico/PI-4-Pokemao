@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class UsuarioController extends Controller
 {
 
-    function login(Request $request)
+    function login(Request $request)  
     {
         $request->validate([
             'email' => 'required|email',
